@@ -13,7 +13,7 @@ async function bootstrap() {
   });
 
   app.useGlobalPipes(new ValidationPipe());
-  const port = process.env.PORT ?? 3001;
+  const port = process.env.PORT;
   if (port) {
     console.log(`🚀 Server running on http://localhost:${port}`);
   }
