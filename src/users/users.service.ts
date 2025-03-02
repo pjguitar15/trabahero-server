@@ -10,21 +10,17 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 
-export type User = any;
-
-export type CreateUser = { username: string; email: string; password: string };
-
 @Injectable()
 export class UsersService {
   constructor(@InjectModel('User') private userModel: Model<IUser>) {}
 
-  async findOne(email: string): Promise<User | undefined> {
+  async findOne(email: string): Promise<any | undefined> {
     return this.userModel.findOne({ email }).exec();
   }
 
   async createUser(createUserDto: CreateUserDto): Promise<IUser> {
     try {
-      const { username, email, password } = createUserDto;
+      const { username, email, password, firstName, lastName } = createUserDto;
 
       // Validate user data
       const validationResult = validateSignupData(username, email, password);
@@ -41,11 +37,13 @@ export class UsersService {
       // Hash the Password
       const securePassword = await hashPassword(password);
 
-      // Create and Save the User
+      // Create and Save the User with new fields
       const newUser = new this.userModel({
         username,
         email,
         password: securePassword,
+        firstName,
+        lastName,
       });
 
       return await newUser.save();
