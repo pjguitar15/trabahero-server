@@ -9,6 +9,7 @@ import {
   BadRequestException,
   InternalServerErrorException,
 } from '@nestjs/common';
+import { LastCompletedStep } from './enums/lastCompletedStep.enums';
 
 @Injectable()
 export class UsersService {
@@ -44,6 +45,7 @@ export class UsersService {
         password: securePassword,
         firstName,
         lastName,
+        lastCompletedStep: LastCompletedStep.NOT_YET_SETUP,
       });
 
       return await newUser.save();
