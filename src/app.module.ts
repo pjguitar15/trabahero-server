@@ -7,6 +7,7 @@ import { UsersModule } from './users/users.module';
 import { ProfileController } from './profile/profile.controller';
 import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
+import { UserSetupModule } from './user-setup/user-setup.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ConfigModule } from '@nestjs/config';
     AuthModule,
     UsersModule,
     ProfileModule,
+    UserSetupModule,
   ],
   controllers: [AppController, ProfileController],
   providers: [AppService],
