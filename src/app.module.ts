@@ -9,6 +9,7 @@ import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
 import { UserSetupModule } from './user-setup/user-setup.module';
 import { PersonalDetailsModule } from './personal-details/personal-details.module';
+import { ProfessionalInfoModule } from './professional-info/professional-info.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PersonalDetailsModule } from './personal-details/personal-details.modul
     ProfileModule,
     UserSetupModule,
     PersonalDetailsModule,
+    ProfessionalInfoModule,
   ],
   controllers: [AppController, ProfileController],
   providers: [AppService],
