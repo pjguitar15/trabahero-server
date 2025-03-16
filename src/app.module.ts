@@ -8,6 +8,7 @@ import { ProfileController } from './profile/profile.controller';
 import { ProfileModule } from './profile/profile.module';
 import { ConfigModule } from '@nestjs/config';
 import { UserSetupModule } from './user-setup/user-setup.module';
+import { PersonalDetailsModule } from './personal-details/personal-details.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { UserSetupModule } from './user-setup/user-setup.module';
     UsersModule,
     ProfileModule,
     UserSetupModule,
+    PersonalDetailsModule,
   ],
   controllers: [AppController, ProfileController],
   providers: [AppService],

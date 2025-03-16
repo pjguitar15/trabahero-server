@@ -21,7 +21,8 @@ export class UsersService {
 
   async createUser(createUserDto: CreateUserDto): Promise<IUser> {
     try {
-      const { username, email, password, firstName, lastName } = createUserDto;
+      const { username, email, password, firstName, lastName, middleName } =
+        createUserDto;
 
       // Validate user data
       const validationResult = validateSignupData(username, email, password);
@@ -44,6 +45,7 @@ export class UsersService {
         email,
         password: securePassword,
         firstName,
+        middleName,
         lastName,
         lastCompletedStep: LastCompletedStep.NOT_YET_SETUP,
       });

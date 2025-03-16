@@ -1,3 +1,4 @@
+import { Optional } from '@nestjs/common';
 import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateUserDto {
@@ -10,6 +11,11 @@ export class CreateUserDto {
   @MaxLength(50)
   @IsNotEmpty()
   readonly firstName: string;
+
+  @IsString()
+  @MaxLength(50)
+  @Optional()
+  readonly middleName: string;
 
   @IsString()
   @MaxLength(50)

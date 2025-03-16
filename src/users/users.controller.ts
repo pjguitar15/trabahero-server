@@ -22,9 +22,12 @@ export class UsersController {
     }
 
     return {
+      id: user._id,
       firstName: user.firstName,
+      middleName: user.middleName,
       lastName: user.lastName,
       initials: `${user.firstName[0]}${user.lastName[0]}`.toUpperCase(),
+      email: user.email,
     };
   }
 }

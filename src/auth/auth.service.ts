@@ -25,7 +25,7 @@ export class AuthService {
     const secretKey = process.env.JWT_SECRET || 'fallback_secret'; // Just to test
     const expiresIn = process.env.JWT_EXPIRES_IN || '3600s'; // Just to test
 
-    console.log('🔹 JWT_SECRET from process.env:', secretKey);
+    console.log('expiresIn', expiresIn);
 
     try {
       const token = this.jwtService.sign(payload, {
